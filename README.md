@@ -104,3 +104,9 @@ jupyter nbconvert --to notebook --execute --inplace bt4211-project.ipynb
 ```
 
 Run the notebook from the repo root so it can find `spotify_dataset.csv`. A full run regenerates every PNG in `figures/`. Tested with Python 3.10.
+
+The notebooks form a pipeline, so run them in this order:
+
+1. `bt4211-project.ipynb`: cleaning and EDA. Saves `tracks_clean.pkl`.
+2. `regression-fit.ipynb`: OLS model of the popularity score. Saves `outputs/ols_*.csv`.
+3. `logistic-hit.ipynb`: logistic model of P(hit) and the push cut-off. Saves `outputs/logit_*.csv`, and compares itself against step 2's predictions.
